@@ -76,9 +76,11 @@ with st.sidebar.form('Enter OPEN API key'):
     st.form_submit_button('Validate key', on_click=validate)
 
 
-side_text = st.sidebar.text(
-    f'Current OPEN AI API Key is valid'
-    )
+if st.session_state.currentkey:
+
+    side_text = st.sidebar.text(
+        f'Current OPEN AI API Key is valid'
+        )
 
 
 
