@@ -1,0 +1,112 @@
+{
+    "questions":[
+        {
+           "id":1,
+            "question":"Provide me with some ideas for improving my cardiovascular health" 
+        },
+        {
+            "id":2,
+            "question": "How can I improve my flexibility and prevent injuries during training"
+        },
+        {
+            "id":3,
+            "question": "What are some effective strategies to help me with fat loss"
+        },
+        {
+            "id":4,
+            "question": "What are some exercises I can do to improve my posture"
+        },
+        {
+            "id":5,
+            "question": "how can i incorporate more physical activity into my daily routine"
+        },
+        {
+            "id":6,
+            "question": "What are some dietary recommendations or supplements that can help support my fitness goals"
+        },
+        {
+            "id":7,
+            "question": "How can I improve my stress levels"
+        },
+        {
+            "id":8,
+            "question": "How can I safely increase my endurance for long distance running or other cardiovascular activities"
+        },
+        {
+            "id":9,
+            "question": "I have an injury, what can I do to support my rehab"
+        },
+        {
+            "id":10,
+            "question": "What are some good watm up and cool down exercises for before and after my training"
+        },
+        {
+            "id":11,
+            "question": "Are there some exercises I can use to improve balance and coordination"
+        },
+        {
+            "id":12,
+            "question":"How can I ensure I am getting enough nutrients and hydration for optimal exercise and performance"
+        },
+        {
+            "id":13,
+            "question": "What are some effective strategies for overcoming plateaus in fitness progress"
+        },
+        {
+            "id":14,
+            "question": "Is there a specific workout routine or diet plan that is recommended for individuals with specific health conditions such as diabetes or high blood pressure?"
+        },
+        {
+            "id":15,
+            "question": "How can i improve my sleep quality and quantity"
+        },
+        {
+            "id":16,
+            "question": "Can you provide guidance on the importance of proper form and technique during exercise to prevent injuries"
+        },
+        {
+            "id":17,
+            "question": "How can I maintain a healthy lifestyle while balancing work and other responsibilities"
+        },
+        {
+            "id":18,
+            "question":"What are some ways to stay motivated and consistent with a fitness routine?"
+        },
+        {
+            "id":19,
+            "question": "Can you suggest any alternatives to traditional gym workouts for those who prefer outdoor or at home exercises"
+        },
+        {
+            "id":20,
+            "question": "Are there any specific guidelines for nutrition before and after a workout to optimise performance and recovery"
+        },
+        {
+            "id":21,
+            "question": "How can i incorporate mindfullness and meditation into my fitness routine for overall well-being"
+        },
+        {
+            "id":22,
+            "question": "what are some tips for preventing and managing exercise-induced injuries such as sprains or strains"
+        },
+        {
+            "id":23,
+            "question": "Provide some specific exercises for improving my core strength effectively"
+        },
+        {
+            "id":24,
+            "question": "What are some strategies for overcoming emotional eating and developing a healthier relationship with food"
+        },
+        {
+            "id":25,
+            "question": "What are some healthy snacking options"
+        },
+        {
+            "id":26,
+            "question": "How can I support bone health"
+        },
+        {
+            "id":27,
+            "question": "How can I modify my fitness routine during pregnancy to ensure a safe and healthy exercise regimen"
+        }
+    ]
+}
