@@ -110,4 +110,4 @@ if st.session_state.currentkey:
             st.session_state.generate = False
 
 else:
-    st.header('enter you api key to use functionality')
+    st.header('Enter your Open AI API key to use functionality')
