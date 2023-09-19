@@ -52,3 +52,4 @@ if st.session_state.currentkey:
 st.title('About this app')
 st.write('This is a LLM based personal training fitness app. Developed as part of streamlit hackathon, September 2023')
 st.write('Github repository for this application can be found here -> https://github.com/benjaminmcf/LLM-Personal-trainer-streamlit')
+st.write('You can view the related medium blog post here -> https://medium.com/@mcfaddenrbenjamin/building-a-llm-personal-trainer-with-streamlit-langchain-337a8efac832')
