@@ -28,7 +28,8 @@ st.set_page_config(
 )
 
 # title of content
-st.title("Answering Fitness Questions")
+st.title("LLM personal trainer")
+st.header("Answering Fitness Questions")
 
 
 

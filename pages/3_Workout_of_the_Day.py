@@ -45,7 +45,9 @@ if 'validate_count' not in st.session_state:
 openai.api_key = st.session_state.currentkey
 openai_api_key = st.session_state.currentkey
 
-st.title("Generate a Workout of the Day")
+
+st.title("LLM personal trainer")
+st.header("Generate a Workout of the Day")
 
 def validate():
     try:

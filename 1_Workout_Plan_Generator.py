@@ -20,6 +20,7 @@ st.set_page_config(
 
 # title of content
 st.title("LLM personal trainer")
+st.header("Workout Plan Generator")
 
 
 
