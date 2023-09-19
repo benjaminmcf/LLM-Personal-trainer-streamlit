@@ -39,6 +39,8 @@ try:
     st.session_state.currentkey = st.secrets["open_ai_key"]
 except:
     pass
+
+openai.api_key = st.session_state.currentkey
  
 questions = data['questions']
 question_list = []
@@ -47,6 +49,7 @@ question_list = []
 def validate():
     try:
         text_input = st.session_state.input
+        openai.api_key = text_input
         response = openai.Completion.create(
             engine="davinci",
             prompt="validating openaikey",

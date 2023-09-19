@@ -37,20 +37,23 @@ if 'validate_count' not in st.session_state:
     st.session_state.validate_count = 0
 
 
-try:
-    st.session_state.currentkey = st.secrets["open_ai_key"]
-except:
-    pass
+# try:
+#     st.session_state.currentkey = st.secrets["open_ai_key"]
+# except:
+#     pass
 
+openai.api_key = st.session_state.currentkey
 
 def validate():
     try:
         text_input = st.session_state.input
+        openai.api_key = text_input
         st.session_state.validate_count = st.session_state.validate_count + 1
         response = openai.Completion.create(
             engine="davinci",
             prompt="validating openaikey",
-            max_tokens=5
+            max_tokens=5,
+            
         )
         st.session_state.currentkey = text_input
         st.session_state.validate = False

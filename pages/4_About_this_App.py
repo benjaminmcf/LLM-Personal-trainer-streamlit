@@ -22,7 +22,7 @@ try:
 except:
     pass
 
-
+openai.api_key = st.session_state.currentkey
 
 def validate():
     try:

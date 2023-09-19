@@ -42,8 +42,7 @@ try:
 except:
     pass
 
-
-openai_api_key = st.session_state.currentkey
+openai.api_key = st.session_state.currentkey
 
 
 st.title("LLM Personal Trainer")
@@ -52,6 +51,7 @@ st.header("Generate a Workout of the Day")
 def validate():
     try:
         text_input = st.session_state.input
+        openai.api_key = text_input
         st.session_state.validate_count = st.session_state.validate_count + 1
         response = openai.Completion.create(
             engine="davinci",
