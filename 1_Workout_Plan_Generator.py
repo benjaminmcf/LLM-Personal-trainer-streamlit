@@ -37,10 +37,10 @@ if 'validate_count' not in st.session_state:
     st.session_state.validate_count = 0
 
 
-# try:
-#     st.session_state.currentkey = st.secrets["open_ai_key"]
-# except:
-#     pass
+try:
+    st.session_state.currentkey = st.secrets["open_ai_key"]
+except:
+    pass
 
 openai.api_key = st.session_state.currentkey
 
