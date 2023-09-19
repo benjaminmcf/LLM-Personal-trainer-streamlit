@@ -1,13 +1,11 @@
 import streamlit as st
-from langchain.agents import initialize_agent, AgentType
-from langchain.callbacks import StreamlitCallbackHandler
+
 from langchain.chat_models import ChatOpenAI
 from langchain import PromptTemplate
-from langchain.chains import LLMChain, ConversationChain
-import os
-import json
-from dotenv import load_dotenv, find_dotenv
+from langchain.chains import LLMChain
+
 import openai
+
 
 def generate_program():
         generate_button.empty()
@@ -18,19 +16,16 @@ st.set_page_config(
     page_title="Workout plan generator",
 )
 
+
+
 # title of content
-st.title("LLM personal trainer")
+st.title("LLM Personal Trainer")
 st.header("Workout Plan Generator")
 
 
-
-
+# Initialise the session state variables if they dont exist
 if "generate" not in st.session_state:
     st.session_state.generate = False
-
-
-if 'openaikey' not in st.session_state:
-    st.session_state.openaikey = '' 
 
 if 'currentkey' not in st.session_state:
      st.session_state.currentkey = ''
@@ -47,24 +42,16 @@ try:
 except:
     pass
 
-openai.api_key = st.session_state.currentkey
-openai_api_key = st.session_state.currentkey
-
-
-
-
 
 def validate():
     try:
         text_input = st.session_state.input
         st.session_state.validate_count = st.session_state.validate_count + 1
-        openai.api_key = text_input
         response = openai.Completion.create(
             engine="davinci",
             prompt="validating openaikey",
             max_tokens=5
         )
-        st.session_state.openaikey = text_input
         st.session_state.currentkey = text_input
         st.session_state.validate = False
     except:
@@ -82,9 +69,6 @@ if st.session_state.currentkey:
     side_text = st.sidebar.text(
         f'Current OPEN AI API Key is valid'
         )
-
-
-
 
 
 if st.session_state.currentkey:
@@ -105,12 +89,7 @@ if st.session_state.currentkey:
     if st.session_state.generate:
         with st.spinner("generating program"):
             output_concat = ""
-            # load_dotenv(find_dotenv(),override=True)
-            # openai_api_key = os.environ.get('OPENAI_API_KEY')
-
             
-            
-
             llm = ChatOpenAI(model='gpt-3.5-turbo',temperature=0.5,openai_api_key=st.session_state.currentkey)
             template = """
             Can you create a strength training program that focuses on back squat, bench press, and conventional deadlift

@@ -16,23 +16,17 @@ if 'openaikey' not in st.session_state:
 if 'currentkey' not in st.session_state:
      st.session_state.currentkey = ''
 
-if 'validate' not in st.session_state:
-    st.session_state.validate = False
 
-if 'validate_count' not in st.session_state:
-    st.session_state.validate_count = 0
-
-openai.api_key = st.session_state.currentkey
-openai_api_key = st.session_state.currentkey
-
-
+try:
+    st.session_state.currentkey = st.secrets["open_ai_key"]
+except:
+    pass
 
 
 
 def validate():
     try:
         text_input = st.session_state.input
-        st.session_state.validate_count = st.session_state.validate_count + 1
         openai.api_key = text_input
         response = openai.Completion.create(
             engine="davinci",
@@ -41,7 +35,6 @@ def validate():
         )
         st.session_state.openaikey = text_input
         st.session_state.currentkey = text_input
-        st.session_state.validate = False
     except:
         side_validation = st.sidebar.text('OPEN AI API key not valid')
 

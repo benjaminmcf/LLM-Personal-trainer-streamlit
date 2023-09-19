@@ -1,12 +1,10 @@
 import streamlit as st
-from langchain.agents import initialize_agent, AgentType
-from langchain.callbacks import StreamlitCallbackHandler
+
 from langchain.chat_models import ChatOpenAI
 from langchain import PromptTemplate
 from langchain.chains import LLMChain
-import os
+
 import json
-from dotenv import load_dotenv, find_dotenv
 import openai
 
 def generate_answer():
@@ -15,10 +13,7 @@ def generate_answer():
 
 # Load fitness questions
 with open('questions.json', 'r') as json_file:
-    # Step 2: Read the contents of the file
     json_data = json_file.read()
-
-    # Step 3: Parse the JSON data
     data = json.loads(json_data)
 
 
@@ -28,25 +23,22 @@ st.set_page_config(
 )
 
 # title of content
-st.title("LLM personal trainer")
+st.title("LLM Personal Trainer")
 st.header("Answering Fitness Questions")
 
 
-
+# Initialise the session states if they dont exist
 if "generate" not in st.session_state:
     st.session_state.generate = False
-
-if 'openaikey' not in st.session_state:
-    st.session_state.openaikey = '' 
 
 if 'currentkey' not in st.session_state:
      st.session_state.currentkey = ''
 
-if 'validate' not in st.session_state:
-    st.session_state.validate = False
 
-if 'validate_count' not in st.session_state:
-    st.session_state.validate_count = 0
+try:
+    st.session_state.currentkey = st.secrets["open_ai_key"]
+except:
+    pass
  
 questions = data['questions']
 question_list = []
@@ -55,16 +47,12 @@ question_list = []
 def validate():
     try:
         text_input = st.session_state.input
-        st.session_state.validate_count = st.session_state.validate_count + 1
-        openai.api_key = text_input
         response = openai.Completion.create(
             engine="davinci",
             prompt="validating openaikey",
             max_tokens=5
         )
-        st.session_state.openaikey = text_input
         st.session_state.currentkey = text_input
-        st.session_state.validate = False
     except:
         side_validation = st.sidebar.text('OPEN AI API key not valid')
 
