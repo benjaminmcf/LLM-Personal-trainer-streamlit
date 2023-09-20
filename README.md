@@ -1,6 +1,8 @@
 # LLM-Personal-trainer-streamlit
 LLM powered personal trainer built for the streamlit LLM hackathon, September 2023.
 
+Refer to the medium article here -> https://medium.com/@mcfaddenrbenjamin/building-a-llm-personal-trainer-with-streamlit-langchain-337a8efac832
+
 Summary:
 A streamlit application built using streamlit, langchain, and the open AI API. The application has three main features including:
 
