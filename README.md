@@ -14,7 +14,7 @@ A streamlit application built using streamlit, langchain, and the open AI API. T
 
 The app requires you to have your own API key.
 
-python 3.11.5
+python 3.12.7
 python -m venv venv
 cd venv/scripts
 activate

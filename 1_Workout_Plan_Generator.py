@@ -4,7 +4,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain import PromptTemplate
 from langchain.chains import LLMChain
 
-import openai
+from openai import OpenAI
 
 
 def generate_program():
@@ -42,18 +42,40 @@ try:
 except:
     pass
 
-openai.api_key = st.session_state.currentkey
+
+
+client = OpenAI(api_key=st.secrets["open_ai_key"])
+
+client.api_key = st.session_state.currentkey
+
+
 
 def validate():
     try:
         text_input = st.session_state.input
-        openai.api_key = text_input
+        OpenAI.api_key = text_input
         st.session_state.validate_count = st.session_state.validate_count + 1
-        response = openai.Completion.create(
-            engine="davinci",
-            prompt="validating openaikey",
-            max_tokens=5,
-            
+        response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[
+            {
+            "role": "user",
+            "content": [
+                {
+                "type": "text",
+                "text": "validating openai key\n\n"
+                }
+            ]
+            }
+        ],
+        temperature=1,
+        max_tokens=2048,
+        top_p=1,
+        frequency_penalty=0,
+        presence_penalty=0,
+        response_format={
+            "type": "text"
+        }
         )
         st.session_state.currentkey = text_input
         st.session_state.validate = False
