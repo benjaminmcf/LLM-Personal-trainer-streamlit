@@ -1,5 +1,6 @@
 import streamlit as st
 import openai
+from langchain_community.chat_models import ChatOpenAI
 
 st.set_page_config(
     page_title="About this app",
@@ -28,11 +29,8 @@ def validate():
     try:
         text_input = st.session_state.input
         openai.api_key = text_input
-        response = openai.Completion.create(
-            engine="davinci",
-            prompt="validating openaikey",
-            max_tokens=5
-        )
+        llm = ChatOpenAI(model='gpt-3.5-turbo',temperature=0.7,openai_api_key=text_input)
+        output = llm.invoke("validating openaikey")
         st.session_state.openaikey = text_input
         st.session_state.currentkey = text_input
     except:
@@ -51,5 +49,6 @@ if st.session_state.currentkey:
 
 st.title('About this app')
 st.write('This is a LLM based personal training fitness app. Developed as part of streamlit hackathon, September 2023')
+st.write('Last updated 08 January 2025')
 st.write('Github repository for this application can be found here -> https://github.com/benjaminmcf/LLM-Personal-trainer-streamlit')
 st.write('You can view the related medium blog post here -> https://medium.com/@mcfaddenrbenjamin/building-a-llm-personal-trainer-with-streamlit-langchain-337a8efac832')

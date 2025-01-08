@@ -1,5 +1,4 @@
 # LLM-Personal-trainer-streamlit
-LLM powered personal trainer built for the streamlit LLM hackathon, September 2023.
 
 Refer to the medium article here -> https://medium.com/@mcfaddenrbenjamin/building-a-llm-personal-trainer-with-streamlit-langchain-337a8efac832
 
@@ -12,9 +11,9 @@ A streamlit application built using streamlit, langchain, and the open AI API. T
 
 * Workout of the day: Select a preference, and a random workout of the day will be provided to you.
 
-The app requires you to have your own API key.
+The app requires you to have your own API key. The application was most recently tested using python
 
-python 3.12.7
+python 3.12.8
 python -m venv venv
 cd venv/scripts
 activate

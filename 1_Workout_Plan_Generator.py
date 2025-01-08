@@ -1,7 +1,7 @@
 import streamlit as st
 
-from langchain.chat_models import ChatOpenAI
-from langchain import PromptTemplate
+from langchain_community.chat_models import ChatOpenAI
+from langchain_core.prompts import PromptTemplate
 from langchain.chains import LLMChain
 
 from openai import OpenAI
@@ -44,8 +44,9 @@ except:
 
 
 
-client = OpenAI(api_key=st.secrets["open_ai_key"])
+# client = OpenAI(api_key=st.secrets["open_ai_key"])
 
+client = OpenAI(api_key=st.session_state.currentkey)
 client.api_key = st.session_state.currentkey
 
 
@@ -55,28 +56,10 @@ def validate():
         text_input = st.session_state.input
         OpenAI.api_key = text_input
         st.session_state.validate_count = st.session_state.validate_count + 1
-        response = client.chat.completions.create(
-        model="gpt-4",
-        messages=[
-            {
-            "role": "user",
-            "content": [
-                {
-                "type": "text",
-                "text": "validating openai key\n\n"
-                }
-            ]
-            }
-        ],
-        temperature=1,
-        max_tokens=2048,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0,
-        response_format={
-            "type": "text"
-        }
-        )
+
+        llm = ChatOpenAI(model='gpt-3.5-turbo',temperature=0.7,openai_api_key=text_input)
+        output = llm.invoke("validating openaikey")
+
         st.session_state.currentkey = text_input
         st.session_state.validate = False
     except:
